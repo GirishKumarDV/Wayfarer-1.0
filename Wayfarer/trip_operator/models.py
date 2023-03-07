@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.contrib.auth.hashers import make_password
 # Create your models here.
 
 #---
@@ -13,6 +14,11 @@ class Operator(models.Model):
     op_pass = models.CharField(max_length=254,default=None)
     op_rating = models.CharField(max_length=5)
     trip_count = models.IntegerField(default=0)
+    op_logo =models.ImageField(upload_to='images/',default=None)
+
+    def save(self,*args,**kwargs):
+        self.op_pass = make_password(self.op_pass)
+        super(Operator,self).save(*args,**kwargs)
 
     def __str__(self):
         return self.op_name
@@ -27,6 +33,7 @@ class OperatorUser(models.Model):
     user_pass = models.CharField(max_length=254)
     user_email = models.EmailField(max_length=254)
     user_phone = models.CharField(max_length=13)
+
 
     def __str__(self):
         return f'{self.user_name}-{self.operator}'

@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from . import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,5 +25,7 @@ urlpatterns = [
     path('user/api/',include('user_api.urls',namespace='user_api')),
     path('operator/',include('trip_operator.urls',namespace='trip_operator')),
     path('operator/api/',include('trip_operator_api.urls',namespace='trip_operator_api')),
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

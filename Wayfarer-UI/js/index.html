@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 34;
+        console.log(a);
+
+        function aa() {
+            console.log(32)
+        }
+        document.addEventListener("click", function click() {
+            alert("HELLO")
+            let con = confirm("SURE?")
+            console.log(con)
+        });
+        let arr = [24, 21, 23]
+        let obj = {
+            a: this,
+            myFunc: (name) => {
+                console.log(this + name)
+            }
+        }
+        console.log(obj.a);
+        console.log(obj.myFunc('giurish'));
+
+        console.log("DOWN");
+    </script>
+</head>
+
+<body>
+    <h1>H!</h1>
+</body>
+
+</html>
