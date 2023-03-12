@@ -14,7 +14,7 @@ class Operator(models.Model):
     op_pass = models.CharField(max_length=254,default=None)
     op_rating = models.CharField(max_length=5)
     trip_count = models.IntegerField(default=0)
-    op_logo =models.ImageField(upload_to='images/',default=None)
+    op_logo =models.ImageField(upload_to='logos/',default=None)
 
     def save(self,*args,**kwargs):
         self.op_pass = make_password(self.op_pass)

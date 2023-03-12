@@ -1,9 +1,9 @@
 from django.urls import path
-# from .views import TrekList, TrekDetail
+from .views.nomad_views import NomadCreate
 
 app_name = 'user_api'
 
 urlpatterns = [
-    # path('<int:pk>',TrekDetail.as_view(),name='detailcreate'),
+    path('nomadcreate/',NomadCreate.as_view(),name='nomadcreate'),
     # path('',TrekList.as_view(),name='listcreate'),
 ]
